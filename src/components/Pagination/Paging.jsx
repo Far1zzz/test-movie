@@ -8,8 +8,8 @@ const darkTheme = createTheme({
   },
 });
 
-const Paging = ({ setPage, numOfPages = 10 }) => {
-  const hanldeChange = (page) => {
+const Paging = ({ setPage, numOfPages = 20 }) => {
+  const handleChange = (page) => {
     setPage(page);
     window.scroll(0, 0);
   };
@@ -20,7 +20,7 @@ const Paging = ({ setPage, numOfPages = 10 }) => {
         width: "100%",
         display: "flex",
         justifyContent: "center",
-        paddingBottom: "15px",
+        padding: "15px",
       }}
     >
       <ThemeProvider theme={darkTheme}>
@@ -28,7 +28,7 @@ const Paging = ({ setPage, numOfPages = 10 }) => {
           variant="outlined"
           shape="rounded"
           count={numOfPages}
-          onChange={(e) => hanldeChange(e.target.textContent)}
+          onChange={(e) => handleChange(e.target.textContent)}
           color="secondary"
         />
       </ThemeProvider>
