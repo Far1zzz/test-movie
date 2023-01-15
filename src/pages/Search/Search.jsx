@@ -6,11 +6,12 @@ import {
   Tabs,
   Tab,
 } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import SearchIcon from "@material-ui/icons/Search";
 import axios from "axios";
 import SingleContent from "../../components/SingleContent/SingleContent";
 import Paging from "../../components/Pagination/Paging";
+import "./style.css";
 
 const Search = () => {
   const [type, setType] = useState(0);
@@ -28,19 +29,23 @@ const Search = () => {
     },
   });
 
-  const Search = async () => {
-    const data = await axios.get(
-      `${process.env.REACT_APP_URL}/search/${type ? "tv" : "movie"}?api_key=${
-        process.env.REACT_APP_KEY
-      }&language=en-US&query=${search}&page=${page}&include_adult=false`
-    );
-    setMovie(data.data.results);
-    setPageNum(data.data.total_pages);
+  const SearchMovie = async () => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_URL}/search/${type ? "tv" : "movie"}?api_key=${
+          process.env.REACT_APP_KEY
+        }&language=en-US&query=${search}&page=${page}&include_adult=false`
+      );
+      setMovie(data.results);
+      setPageNum(data.total_pages);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   useEffect(() => {
     window.scroll(0, 0);
-    Search();
+    SearchMovie();
 
     //eslint-disable-next-line
   }, [type, page]);
@@ -59,7 +64,7 @@ const Search = () => {
           <Button
             variant="outlined"
             style={{ marginLeft: 10 }}
-            onClick={Search}
+            onClick={SearchMovie}
           >
             <SearchIcon />
           </Button>
@@ -90,7 +95,6 @@ const Search = () => {
               date={c.first_air_date || c.release_date}
               media_type={type ? "tv" : "movie"}
               vote_average={c.vote_average}
-              overview={c.overview}
             />
           ))}
         {search &&

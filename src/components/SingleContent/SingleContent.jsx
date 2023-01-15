@@ -2,6 +2,7 @@ import React from "react";
 import { img_300, unavailable } from "../../config/config";
 import "./style.css";
 import { Badge } from "@material-ui/core";
+import ContentModal from "../Modal/Modal";
 
 const SingleContent = ({
   id,
@@ -10,11 +11,10 @@ const SingleContent = ({
   date,
   media_type,
   vote_average,
-  overview,
 }) => {
   return (
     <>
-      <div className="media">
+      <ContentModal media_type={media_type} id={id}>
         <Badge
           anchorOrigin={{
             vertical: "top",
@@ -33,9 +33,7 @@ const SingleContent = ({
           {media_type === "tv" ? "TV Series" : "Movie"}
         </span>
         <span className="sub">{date}</span>
-        <hr className="hr" />
-        <span className="overview">{overview}</span>
-      </div>
+      </ContentModal>
     </>
   );
 };

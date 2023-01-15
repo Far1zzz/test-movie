@@ -51,7 +51,6 @@ const Series = () => {
               date={c.first_air_date || c.release_date}
               media_type="tv"
               vote_average={c.vote_average}
-              overview={c.overview}
             />
           ))}
       </div>

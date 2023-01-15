@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+.contentLandScape {
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.contentPotrait {
+  display: none;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.tagline {
+  padding-bottom: 10px;
+  align-self: center;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+.modalContent::-webkit-scrollbar {
+  display: none;
+}
+
+.aboutModal {
+  padding: 10px;
+  width: 95%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+  justify-content: space-evenly;
+  font-weight: 300;
+}
+
+.modalTitle {
+  height: 12%;
+  font-size: 3.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.descriptionModal {
+  display: flex;
+  height: 40%;
+  overflow-y: scroll;
+  padding: 15px;
+  border-radius: 20px;
+  scrollbar-width: thin;
+  box-shadow: inset 0 0 5px;
+  text-align: justify;
+}
+
+.descriptionModal::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 835px) {
+  .contentLandScape {
+    display: none;
+  }
+  .contentPotrait {
+    display: flex;
+    width: 38%;
+  }
+  .modalContent {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+  }
+  .aboutModal {
+    width: 58%;
+    padding: 0;
+    height: 100%;
+  }
+  .modalTitle {
+    font-size: 3.5vw;
+  }
+  .descriptionModal {
+    font-size: 22px;
+  }
+}

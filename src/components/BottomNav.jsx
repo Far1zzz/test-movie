@@ -1,6 +1,6 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import SearchTwoToneIcon from "@mui/icons-material/SearchTwoTone";
@@ -14,6 +14,7 @@ const useStyle = makeStyles({
     position: "fixed",
     bottom: 0,
     backgroundColor: "#2d313a",
+    zIndex: 100,
   },
 });
 
@@ -22,7 +23,7 @@ export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
   const navigate = useNavigate();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (value === 0) {
       navigate("/");
     } else if (value === 1) {
