@@ -18,6 +18,7 @@ const Trending = () => {
   useEffect(() => {
     window.scroll(0, 0);
     movieTrending();
+    // eslint-disable-next-line
   }, [page]);
 
   return (

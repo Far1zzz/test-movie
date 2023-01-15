@@ -30,6 +30,8 @@ const Paging = ({ setPage, numOfPages = 20 }) => {
           count={numOfPages}
           onChange={(e) => handleChange(e.target.textContent)}
           color="secondary"
+          hideNextButton
+          hidePrevButton
         />
       </ThemeProvider>
     </div>
