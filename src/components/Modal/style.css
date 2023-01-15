@@ -43,7 +43,7 @@
 
 .modalTitle {
   height: 12%;
-  font-size: 3.5vw;
+  font-size: 3vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,7 +83,7 @@
     height: 100%;
   }
   .modalTitle {
-    font-size: 3.5vw;
+    font-size: 2vw;
   }
   .descriptionModal {
     font-size: 22px;

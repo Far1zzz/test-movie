@@ -30,6 +30,7 @@ const useStyle = makeStyles((theme) => ({
     color: "white",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(1, 1, 3),
+    margin: "10px",
   },
 }));
 
